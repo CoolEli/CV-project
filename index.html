@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Eli Zeng — XR, HCI & Digital Cultural Heritage</title>
+<meta name="description" content="Eli Zeng / 曾韩擂 — Design Researcher in XR, HCI and Digital Cultural Heritage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Doto:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "three": "https://esm.sh/three@0.169.0",
+    "three/addons/": "https://esm.sh/three@0.169.0/examples/jsm/",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.17.10?external=react,react-dom,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.114.3?external=react,react-dom,three,@react-three/fiber",
+    "maath": "https://esm.sh/maath@0.10.8?external=three",
+    "matter-js": "https://esm.sh/matter-js@0.19.0"
+  }
+}
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.26.4/babel.min.js"></script>
+</head>
+<body>
+
+<div id="liquid-ether-fixed" aria-hidden="true"></div>
+<div id="glass-filters-root" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none"></div>
+
+<div class="page" id="home" data-bg="dark">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="header">
+    <div id="fluidglass-root" aria-hidden="true"></div>
+    <nav class="nav-pill" aria-label="Primary navigation">
+      <a class="nav-link active" href="#home" data-nav="home"><span data-en="Home" data-zh="首页">Home</span></a>
+      <a class="nav-link" href="#research" data-nav="research"><span data-en="Research" data-zh="研究">Research</span></a>
+      <a class="nav-link" href="#experience" data-nav="experience"><span data-en="Experience" data-zh="经历">Experience</span></a>
+      <a class="nav-link" href="#projects" data-nav="projects"><span data-en="Projects" data-zh="项目">Projects</span></a>
+      <a class="nav-link" href="#skills" data-nav="skills"><span data-en="Skills" data-zh="技能">Skills</span></a>
+      <a class="nav-link" href="#education" data-nav="education"><span data-en="Education" data-zh="教育">Education</span></a>
+      <a class="nav-link" href="#contact" data-nav="contact"><span data-en="Contact" data-zh="联系">Contact</span></a>
+    </nav>
+    <a class="sign-in" href="#contact"><span data-en="CV / Contact" data-zh="简历 / 联系">CV / Contact</span></a>
+    <div class="lang-toggle">
+      <button type="button" data-lang="en" class="active">EN</button><button type="button" data-lang="zh">中</button>
+    </div>
+    <div class="mobile-tools">
+      <div class="mobile-lang"><button type="button" data-lang="en" class="active">EN</button><button type="button" data-lang="zh">中</button></div>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-label="Open menu"><span class="burger-lines"><span></span><span></span><span></span></span></button>
+    </div>
+  </header>
+
+  <main class="hero" id="hero">
+    <div class="hero-inner">
+      <h1 class="headline" aria-label="Eli Zeng">
+        <div class="tech-text" id="eliTitle" role="img" data-en="Eli Zeng" data-zh="曾韩擂"></div>
+      </h1>
+      <p class="hero-sub" data-en="I investigate gesture-driven embodied interaction and narrative lighting — how body, light, and space jointly shape digital heritage experiences in museums." data-zh="聚焦手势驱动的具身交互与叙事照明，探索身体、光与空间如何共同塑造博物馆数字遗产体验。">I investigate gesture-driven embodied interaction and narrative lighting — how body, light, and space jointly shape digital heritage experiences in museums.</p>
+      <div class="hero-folder" id="folderMount" role="region" aria-label="About me · 关于我"></div>
+    </div>
+  </main>
+
+  <section class="stats" aria-label="Selected profile metrics">
+    <div class="stat"><div class="stat-icon">&lt;</div><div class="stat-copy"><div class="stat-value"><span class="counter" data-target="1">0</span></div><div class="stat-label" data-en="XR Research Prototype" data-zh="XR 研究原型">XR Research Prototype</div></div></div>
+    <div class="stat"><div class="stat-icon">%</div><div class="stat-copy"><div class="stat-value"><span class="counter" data-target="3">0</span></div><div class="stat-label" data-en="Academic Publications" data-zh="学术论文">Academic Publications</div></div></div>
+    <div class="stat"><div class="stat-icon">*</div><div class="stat-copy"><div class="stat-value"><span class="counter" data-target="9">0</span></div><div class="stat-label" data-en="Product Series Launched" data-zh="主导产品系列">Product Series Launched</div></div></div>
+    <div class="stat"><div class="stat-icon">#</div><div class="stat-copy"><div class="stat-value"><span class="counter" data-target="1">0</span></div><div class="stat-label" data-en="Granted Invention Patent" data-zh="授权发明专利">Granted Invention Patent</div></div></div>
+  </section>
+</div>
+
+<section class="section dark reveal-section" id="research" data-bg="dark">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Research direction" data-zh="研究方向">Research direction</div>
+    <h2 data-type-effect data-en="Gesture Interaction × Narrative Lighting × Digital Heritage" data-zh="手势交互 × 叙事照明 × 数字文化遗产">Gesture Interaction × Narrative Lighting × Digital Heritage</h2>
+    <p class="section-intro" data-en="Grounded in HCI and embodied interaction, my research combines markerless gesture interaction with narrative lighting, transforming digital heritage from passive viewing into embodied meaning-making." data-zh="我的研究扎根于人机交互与具身交互理论，探索无标记手势交互与叙事照明的结合，推动数字遗产体验从被动观看，转向以身体参与为路径的意义建构。">Grounded in HCI and embodied interaction, my research combines markerless gesture interaction with narrative lighting, transforming digital heritage from passive viewing into embodied meaning-making.</p>
+    <div class="grid-3">
+      <article class="outline-card"><div class="card-num">01 / GESTURE</div><div class="card-title" data-type-effect data-en="Embodied Interaction" data-zh="具身交互">Embodied Interaction</div><p class="card-copy"><span data-en="Gesture is treated " data-zh="将手势视为">Gesture is treated </span><span class="hl-b" data-en="as part of cultural understanding rather than merely as input commands" data-zh="文化理解的组成部分，而非单纯的输入指令">as part of cultural understanding rather than merely as input commands</span><span data-en=": body movement, visual attention, and spatial position jointly constitute the experience." data-zh="——身体动作、视觉注意与空间位置共同构成体验。">: body movement, visual attention, and spatial position jointly constitute the experience.</span></p></article>
+      <article class="outline-card"><div class="card-num">02 / LIGHTING</div><div class="card-title" data-type-effect data-en="Narrative Lighting" data-zh="叙事照明">Narrative Lighting</div><p class="card-copy"><span data-en="Programmable physical light serves as a narrative medium — " data-zh="可编程的物理光作为叙事媒介：">Programmable physical light serves as a narrative medium — </span><span class="hl" data-en="guiding attention, providing process feedback, shaping atmosphere, and building symbolic associations" data-zh="引导观众注意、提供过程反馈、营造氛围、建立象征关联">guiding attention, providing process feedback, shaping atmosphere, and building symbolic associations</span><span data-en=" in response to visitors’ movements." data-zh="，并对观众的动作作出响应。"> in response to visitors’ movements.</span></p></article>
+      <article class="outline-card"><div class="card-num">03 / HERITAGE</div><div class="card-title" data-type-effect data-en="Digital Cultural Heritage" data-zh="数字文化遗产">Digital Cultural Heritage</div><p class="card-copy"><span data-en="I have developed gesture-interaction and VR projects around bronze artifacts, Dunhuang murals, and traditional patterns. As director of the Digital Intangible Cultural Heritage Design and Production teaching and research office, I explore new interaction modes for communicating cultural heritage — " data-zh="曾围绕青铜器、敦煌壁画与传统纹样开发手势交互与 VR 案例；现任数字非遗设计与制作教研室主任，致力于探索文化遗产传播的新型交互方式，">I have developed gesture-interaction and VR projects around bronze artifacts, Dunhuang murals, and traditional patterns. As director of the Digital Intangible Cultural Heritage Design and Production teaching and research office, I explore new interaction modes for communicating cultural heritage — </span><span class="hl-b" data-en="turning viewers into participants." data-zh="让观众从观看者转变为参与者。">turning viewers into participants.</span></p></article>
+    </div>
+    <div class="rule"></div>
+    <div class="research-stack">
+      <div>
+        <div class="section-kicker" data-en="Research background" data-zh="研究背景">Research background</div>
+        <p class="section-intro" style="margin-top:0"><span data-en="Digital technology has expanded how museums document, restore, and communicate cultural heritage, yet many digital heritage experiences still relegate visitors to the role of spectators. Embodied interaction offers an alternative: engaging with heritage through bodily action. This research focuses on vision-based, markerless, mid-air gesture interaction and treats physical light in the exhibition space as a programmable narrative medium — one that guides attention, provides process feedback, shapes atmosphere, and carries symbolic meaning. " data-zh="数字技术拓展了博物馆记录、复原与传播文化遗产的方式，但许多数字遗产体验仍将观众置于观看者的位置。具身交互提供了另一条路径：以身体动作为媒介，与遗产建立具身的、主动的关联。本研究聚焦基于视觉识别的无标记空中手势交互，并将展览空间中的物理光视为可编程的叙事媒介——引导注意、提供过程反馈、营造氛围、传递象征意义。">Digital technology has expanded how museums document, restore, and communicate cultural heritage, yet many digital heritage experiences still relegate visitors to the role of spectators. Embodied interaction offers an alternative: engaging with heritage through bodily action. This research focuses on vision-based, markerless, mid-air gesture interaction and treats physical light in the exhibition space as a programmable narrative medium — one that guides attention, provides process feedback, shapes atmosphere, and carries symbolic meaning. </span><span class="hl" data-en="How gesture and physical lighting jointly participate in meaning-making remains underexplored." data-zh="手势与物理照明如何协同参与意义建构，仍是现有研究较少触及的问题。">How gesture and physical lighting jointly participate in meaning-making remains underexplored.</span></p>
+      </div>
+      <div class="rule"></div>
+      <div>
+        <div class="section-kicker" data-en="Research questions" data-zh="研究问题">Research questions</div>
+                <div class="bio-stack">
+                  <div class="bio-line"><div class="bio-year">01</div><div><div class="bio-title hl" data-en="How does gesture-driven narrative lighting affect museum visitors’ experience?" data-zh="手势驱动的叙事照明如何影响博物馆观众的体验？">How does gesture-driven narrative lighting affect museum visitors’ experience?</div><div class="bio-copy"><span data-en="This question focuses on " data-zh="本问题关注">This question focuses on </span><span class="hl-b" data-en="spatial presence, cultural learning, emotional engagement, and exploratory behavior" data-zh="空间临场感、文化学习、情感投入与探索行为">spatial presence, cultural learning, emotional engagement, and exploratory behavior</span><span data-en=", measuring the added value of narrative lighting over static lighting." data-zh="，旨在测量叙事照明相对于静态照明的增量效应。">, measuring the added value of narrative lighting over static lighting.</span></div></div></div>
+                  <div class="bio-line"><div class="bio-year">02</div><div><div class="bio-title hl" data-en="How can culturally grounded gesture–lighting mappings be developed?" data-zh="如何建立具有文化依据的手势—照明映射？">How can culturally grounded gesture–lighting mappings be developed?</div><div class="bio-copy"><span data-en="This question translates core lighting functions — " data-zh="本问题将">This question translates core lighting functions — </span><span class="hl-b" data-en="guiding attention, providing process feedback, shaping atmosphere, and building symbolic associations" data-zh="引导注意、过程反馈、氛围营造、象征关联">guiding attention, providing process feedback, shaping atmosphere, and building symbolic associations</span><span data-en=" — into gesture–lighting relationships that visitors can understand and learn." data-zh="等照明功能，转化为观众可理解、可学习的手势—照明关系。"> — into gesture–lighting relationships that visitors can understand and learn.</span></div></div></div>
+                  <div class="bio-line"><div class="bio-year">03</div><div><div class="bio-title hl" data-en="Which design principles can support the deployment of such installations in real museum settings?" data-zh="哪些设计原则能够支撑这类装置在真实博物馆场景中落地？">Which design principles can support the deployment of such installations in real museum settings?</div><div class="bio-copy"><span data-en="This question combines participatory design, controlled experiments, and field deployment to develop a framework that balances " data-zh="本问题综合参与式设计、受控实验与实地部署，旨在形成兼顾">This question combines participatory design, controlled experiments, and field deployment to develop a framework that balances </span><span class="hl-b" data-en="accessibility, cultural responsibility, and deployability" data-zh="无障碍、文化责任与可实施性">accessibility, cultural responsibility, and deployability</span><span data-en="." data-zh="的设计框架。">.</span></div></div></div>
+                </div>
+      </div>
+      <div class="rule"></div>
+      <div>
+        <div class="section-kicker" data-en="Research foundation" data-zh="研究基础">Research foundation</div>
+        <ul class="foundation-list">
+          <li data-en="Heritage interaction practice: I have developed gesture-interaction prototypes around bronze artifacts, Dunhuang murals, and traditional patterns, exploring how visitors shift from spectators to participants." data-zh="遗产交互实践——已完成围绕青铜器、敦煌壁画与传统纹样的手势交互原型，探索推动观众从观看者转变为参与者的交互方式。">Heritage interaction practice: I have developed gesture-interaction prototypes around bronze artifacts, Dunhuang murals, and traditional patterns, exploring how visitors shift from spectators to participants.</li>
+          <li data-en="XR project experience*: I have led and contributed to multiple VR/MR research projects, covering the full trajectory from prototyping to deployed systems." data-zh="XR 项目经验*——主持并参与多项虚拟现实与混合现实科研项目，具备从原型开发到系统落地的完整经验。">XR project experience*: I have led and contributed to multiple VR/MR research projects, covering the full trajectory from prototyping to deployed systems.</li>
+          <li><span data-en="Lighting product development: two years of hardware product development in the lighting industry (OSRAM’s general lighting business, now LEDVANCE; Leedarson), " data-zh="照明产品开发——拥有两年照明行业硬件产品开发经验（欧司朗 OSRAM 通用照明业务，现 LEDVANCE；立达信），">Lighting product development: two years of hardware product development in the lighting industry (OSRAM’s general lighting business, now LEDVANCE; Leedarson), </span><span class="hl" data-en="leading 9 luminaire product series and nearly 100 SKUs from development to launch" data-zh="主导 9 个照明产品系列、近 100 个 SKU 的开发与上市">leading 9 luminaire product series and nearly 100 SKUs from development to launch</span><span data-en="." data-zh="。">.</span></li>
+          <li data-en="Teaching and research leadership: as director of the Digital Intangible Cultural Heritage Design and Production teaching and research office at Quanzhou Huaguang College, I advance the application of digital technology to heritage preservation and communication." data-zh="教学与科研管理——现任泉州华光职业学院数字非遗设计与制作教研室主任，持续推动数字技术在非物质文化遗产保存与传播中的教学与实践。">Teaching and research leadership: as director of the Digital Intangible Cultural Heritage Design and Production teaching and research office at Quanzhou Huaguang College, I advance the application of digital technology to heritage preservation and communication.</li>
+        </ul>
+        <p class="foundation-note"><span data-en="* Related XR projects: " data-zh="* XR 相关项目：">* Related XR projects: </span><span class="hl" data-en="JAT251371 (principal investigator, VR-based collaborative lighting design)" data-zh="JAT251371（主持，基于虚拟现实技术的照明设计协同设计）">JAT251371 (principal investigator, VR-based collaborative lighting design)</span><span data-en="; 2022SR0889245 (software copyright, MR RV-interior customization system); GY2021014 (co-investigator, MR vehicle-customization system R&D); 2020 university innovation fund project (team member, 5G + VR cross-regional medical system design)." data-zh="；2022SR0889245（软件著作，MR 房车内饰个性化定制系统）；GY2021014（参与，基于混合现实技术的改装车个性化定制系统研发）；2020 年工业中心大学生创新实践基金项目（参与，基于 5G 网络和虚拟现实技术的跨区域医疗系统设计）。">; 2022SR0889245 (software copyright, MR RV-interior customization system); GY2021014 (co-investigator, MR vehicle-customization system R&D); 2020 university innovation fund project (team member, 5G + VR cross-regional medical system design).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light reveal-section" id="experience" data-bg="light">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Experience" data-zh="工作经历">Experience</div>
+    <h2 data-type-effect data-en="From lighting product manager to museum interaction researcher." data-zh="从照明产品经理到博物馆交互研究者">From lighting product manager to museum interaction researcher.</h2>
+    <p class="section-intro" data-en="My professional experience spans digital media education, lighting product development, smart-home interaction, and data-driven user research. I now direct the Digital Intangible Cultural Heritage Design and Production teaching and research office, with a sustained focus on the digital preservation and communication of cultural heritage. Together, these experiences have shaped my understanding of the relationships among technology, space, and human experience." data-zh="我的职业经历横跨数字媒体教育、照明产品开发、智能家居交互与数据驱动的用户研究；现任数字非遗设计与制作教研室主任，长期关注文化遗产的数字化保存与传播。这些经历共同塑造了我对技术、空间与人类体验三者之间关系的理解。">My professional experience spans digital media education, lighting product development, smart-home interaction, and data-driven user research. I now direct the Digital Intangible Cultural Heritage Design and Production teaching and research office, with a sustained focus on the digital preservation and communication of cultural heritage. Together, these experiences have shaped my understanding of the relationships among technology, space, and human experience.</p>
+    <div class="experience">
+      <article class="job"><div class="job-time">2025.11 — Present</div><div><div class="job-company">Quanzhou Huaguang College</div><div class="job-role" data-en="Director · Digital Intangible Cultural Heritage Design and Production" data-zh="教研室主任 · 数字非遗设计与制作">Director · Digital Intangible Cultural Heritage Design and Production</div><p class="job-copy" data-en="I lead teaching and research in digital intangible cultural heritage design and production. I teach 3D character design, digital sculpting and painting, graphic drawing, and digital creative product design, and guide students in 3D content production and digital visual expression." data-zh="负责数字非遗设计与制作方向的教学与教研工作，主讲三维角色设计、数字雕刻与绘画、图形绘制基础、数字创意产品设计等课程，指导学生开展三维内容生产与数字视觉创作。">I lead teaching and research in digital intangible cultural heritage design and production. I teach 3D character design, digital sculpting and painting, graphic drawing, and digital creative product design, and guide students in 3D content production and digital visual expression.</p></div><div class="job-tag" data-en="Education / Heritage" data-zh="教学 / 非遗">Education / Heritage</div></article>
+      <article class="job"><div class="job-time">2024.10 — 2025.10</div><div><div class="job-company">OSRAM / LEDVANCE</div><div class="job-role" data-en="Hardware Product Manager" data-zh="硬件产品经理">Hardware Product Manager</div><p class="job-copy"><span data-en="I led 9 lighting product series and nearly 100 SKUs from development to launch, with " data-zh="主导 9 个照明产品系列、近 100 个 SKU 的开发与上市，">I led 9 lighting product series and nearly 100 SKUs from development to launch, with </span><span class="hl" data-en="approximately US$8 million in cumulative sales" data-zh="累计销售额约 800 万美元">approximately US$8 million in cumulative sales</span><span data-en=". I contributed to international projects such as Zayed Airport, applying light-distribution analysis, environmental simulation, and spatial experience design." data-zh="；参与 Zayed Airport（扎耶德机场）等国际项目，结合光分布数据分析、环境模拟与空间体验开展产品设计。">. I contributed to international projects such as Zayed Airport, applying light-distribution analysis, environmental simulation, and spatial experience design.</span></p></div><div class="job-tag" data-en="Lighting / Space" data-zh="照明 / 空间">Lighting / Space</div></article>
+      <article class="job"><div class="job-time">2023.07 — 2024.07</div><div><div class="job-company">LEEDARSON</div><div class="job-role" data-en="Hardware Product Manager" data-zh="硬件产品经理">Hardware Product Manager</div><p class="job-copy"><span data-en="I conducted user and market research for North American and European product lines, drawing on Amazon data, word-frequency analysis, and Discord user communities, and applying DEMATEL to extract user requirements. I managed product development from concept to mass production, launching scenario-based lighting products generating " data-zh="负责北美与欧洲市场的产品需求研究与开发：结合 Amazon 销售数据、词频分析与 Discord 用户社群，运用 DEMATEL 方法提取用户需求；主导产品从概念设计到量产的全流程管理，推出场景化照明产品，">I conducted user and market research for North American and European product lines, drawing on Amazon data, word-frequency analysis, and Discord user communities, and applying DEMATEL to extract user requirements. I managed product development from concept to mass production, launching scenario-based lighting products generating </span><span class="hl" data-en="more than US$30 million in cumulative sales" data-zh="累计销售额超过 3000 万美元">more than US$30 million in cumulative sales</span><span data-en="." data-zh="。">.</span></p></div><div class="job-tag" data-en="Research / Product" data-zh="研究 / 产品">Research / Product</div></article>
+      <article class="job"><div class="job-time">2022.05 — 2022.12</div><div><div class="job-company">TCL</div><div class="job-role" data-en="Smart Home Product Manager Intern" data-zh="智能家居产品经理（实习）">Smart Home Product Manager Intern</div><p class="job-copy"><span data-en="I conducted user interviews and scenario research covering sleep, entertainment, and air-purification use cases. I produced " data-zh="围绕睡眠、观影与空气净化场景开展用户访谈与场景研究，完成 ">I conducted user interviews and scenario research covering sleep, entertainment, and air-purification use cases. I produced </span><span class="hl" data-en="more than 50 interaction prototypes and user flows" data-zh="50 余个交互原型与流程图">more than 50 interaction prototypes and user flows</span><span data-en=", and explored multi-device coordination across smart-home environments." data-zh="，探索智能家居环境下的多设备协同控制。">, and explored multi-device coordination across smart-home environments.</span></p></div><div class="job-tag" data-en="HCI / Smart Home" data-zh="HCI / 智能家居">HCI / Smart Home</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark reveal-section" id="projects" data-bg="dark">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Selected projects" data-zh="代表项目">Selected projects</div>
+    <h2 data-type-effect data-en="Prototypes as research evidence." data-zh="原型即研究证据">Prototypes as research evidence.</h2>
+    <p class="section-intro" data-en="The interactive prototypes, spatial systems, and digital heritage experiments in this portfolio provide the technical foundation for my doctoral research. The next step is to develop them into empirically grounded HCI research through Research through Design." data-zh="作品集中的交互原型、空间系统与数字遗产实验，已为博士阶段的研究奠定了技术基础；下一步，我将通过“设计即研究”（Research through Design）这一范式，把它们发展为具有实证基础的人机交互研究。">The interactive prototypes, spatial systems, and digital heritage experiments in this portfolio provide the technical foundation for my doctoral research. The next step is to develop them into empirically grounded HCI research through Research through Design.</p>
+    <div class="grid-3" id="projectsGrid">
+      <article class="outline-card" data-project="project-01"><div class="card-num">01 / HERITAGE</div><div class="card-title" data-type-effect data-en="Bronze Heritage Gesture Interaction" data-zh="青铜器手势交互">Bronze Heritage Gesture Interaction</div><p class="card-copy" data-en="A browser-based 3D cultural heritage prototype using JavaScript and MediaPipe to explore hand-gesture interaction with heritage artifacts." data-zh="基于 JavaScript 与 MediaPipe 的浏览器三维文化遗产原型，探索手势与遗产三维对象之间的交互方式。">A browser-based 3D cultural heritage prototype using JavaScript and MediaPipe to explore hand-gesture interaction with heritage artifacts.</p></article>
+      <article class="outline-card" data-project="project-02"><div class="card-num">02 / DUNHUANG</div><div class="card-title" data-type-effect data-en="Dunhuang Interactive Heritage" data-zh="敦煌互动文化遗产">Dunhuang Interactive Heritage</div><p class="card-copy" data-en="An experimental digital heritage experience combining 3D models, gesture interaction, and visual feedback to explore embodied cultural engagement." data-zh="结合三维模型、手势交互与视觉反馈的数字遗产实验，探索具身化的文化参与方式。">An experimental digital heritage experience combining 3D models, gesture interaction, and visual feedback to explore embodied cultural engagement.</p></article>
+      <article class="outline-card" data-project="project-03"><div class="card-num">03 / MR</div><div class="card-title" data-type-effect data-en="MR RV Interior Customization" data-zh="MR 房车内饰定制">MR RV Interior Customization</div><p class="card-copy" data-en="A HoloLens 2 research prototype built with Unity, C#, and MRTK to support spatial visualization and interactive customization, refined through multiple iterations." data-zh="基于 Unity、C#、MRTK 与 HoloLens 2 的研究原型，支持空间可视化与交互式内饰定制，并经过多轮迭代优化。">A HoloLens 2 research prototype built with Unity, C#, and MRTK to support spatial visualization and interactive customization, refined through multiple iterations.</p></article>
+      <article class="outline-card" data-project="project-04"><div class="card-num">04 / PATTERN</div><div class="card-title" data-type-effect data-en="Traditional Pattern Interaction" data-zh="传统纹样交互">Traditional Pattern Interaction</div><p class="card-copy" data-en="An interactive system that translates traditional Chinese decorative motifs into generative, responsive visual systems, connecting a cultural pattern language with contemporary digital interaction." data-zh="将中国传统装饰纹样转译为可生成、可响应的交互视觉系统，连接文化纹样语言与当代数字交互体验。">An interactive system that translates traditional Chinese decorative motifs into generative, responsive visual systems, connecting a cultural pattern language with contemporary digital interaction.</p></article>
+      <article class="outline-card" data-project="project-05"><div class="card-num">05 / APP</div><div class="card-title" data-type-effect data-en="APP Interaction Design" data-zh="APP 交互设计">APP Interaction Design</div><p class="card-copy" data-en="End-to-end mobile application interaction design covering information architecture, user flows, wireframing, high-fidelity prototyping, and usability evaluation." data-zh="端到端的移动应用交互设计，涵盖信息架构、用户流程、线框图、高保真原型与可用性评估。">End-to-end mobile application interaction design covering information architecture, user flows, wireframing, high-fidelity prototyping, and usability evaluation.</p></article>
+      <article class="outline-card" data-project="project-06"><div class="card-num">06 / PRODUCT</div><div class="card-title" data-type-effect data-en="Product Design" data-zh="产品设计">Product Design</div><p class="card-copy" data-en="Product design practice spanning concept development, ergonomics, CMF, and mass production — translating user needs and spatial experience into manufacturable design solutions." data-zh="涵盖概念开发、人机工程、CMF 与量产的产品设计实践，将用户需求与空间体验转化为可制造的设计方案。">Product design practice spanning concept development, ergonomics, CMF, and mass production — translating user needs and spatial experience into manufacturable design solutions.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section light reveal-section" id="skills" data-bg="light">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Software and research methods" data-zh="软件与研究方法">Software and research methods</div>
+    <h2 data-type-effect data-en="XR development × lighting design × user research" data-zh="XR 开发 × 照明设计 × 用户研究">XR development × lighting design × user research</h2>
+    <p class="section-intro" data-en="My technical expertise spans XR and gesture-interaction development, 3D content production, UI/UX, user research, lighting design (DIALux) and luminaire product development, as well as AI-assisted research workflows." data-zh="我的技术能力覆盖 XR 与手势交互开发、三维内容生产、UI/UX 设计、用户研究、照明设计（DIALux）与灯具产品开发，以及 AI 辅助的研究工作流。">My technical expertise spans XR and gesture-interaction development, 3D content production, UI/UX, user research, lighting design (DIALux) and luminaire product development, as well as AI-assisted research workflows.</p>
+    <div class="skills">
+      <div class="skill-row"><div class="skill-name" data-en="XR / Development" data-zh="XR / 开发">XR / Development</div><div class="skill-values">Unity · C# · HoloLens 2 · MRTK · JavaScript · MediaPipe</div><div class="skill-small" data-en="Interactive prototyping, spatial interaction, and gesture-based experiments." data-zh="交互原型、空间交互与手势交互实验。">Interactive prototyping, spatial interaction, and gesture-based experiments.</div></div>
+      <div class="skill-row"><div class="skill-name" data-en="3D / Digital Media" data-zh="三维 / 数字媒体">3D / Digital Media</div><div class="skill-values">ZBrush · MAYA · Rhino · C4D</div><div class="skill-small" data-en="3D modeling, digital sculpting, spatial visualization, and content production." data-zh="三维建模、数字雕刻、空间可视化与数字内容生产。">3D modeling, digital sculpting, spatial visualization, and content production.</div></div>
+      <div class="skill-row"><div class="skill-name" data-en="UI / UX" data-zh="UI / UX">UI / UX</div><div class="skill-values">Figma · Photoshop · Illustrator</div><div class="skill-small" data-en="Interface design, interaction flows, visual communication, and product prototyping." data-zh="界面设计、交互流程、视觉传达与产品原型。">Interface design, interaction flows, visual communication, and product prototyping.</div></div>
+      <div class="skill-row"><div class="skill-name" data-en="Research / Analysis" data-zh="研究 / 分析">Research / Analysis</div><div class="skill-values">Grounded Theory · SEM · DEMATEL</div><div class="skill-small" data-en="Combining qualitative and quantitative methods: interviews, usability evaluation, survey analysis, experimental design, and structural equation modeling." data-zh="定性与定量结合：用户访谈、可用性评价、问卷分析、实验设计与结构方程建模。">Combining qualitative and quantitative methods: interviews, usability evaluation, survey analysis, experimental design, and structural equation modeling.</div></div>
+      <div class="skill-row"><div class="skill-name" data-en="AI-assisted workflow" data-zh="AI 辅助工作流">AI-assisted workflow</div><div class="skill-values">Generative AI · Data Scripting · Workflow Automation</div><div class="skill-small" data-en="Using AI tools to assist prototype ideation, scripting, data processing, and research workflow automation." data-zh="利用 AI 辅助原型构思、脚本生成、数据处理与研究工作流自动化。">Using AI tools to assist prototype ideation, scripting, data processing, and research workflow automation.</div></div>
+      <div class="skill-row"><div class="skill-name" data-en="Office & Production" data-zh="办公与生产">Office & Production</div><div class="skill-values">Microsoft Office · Documentation · Presentation</div><div class="skill-small" data-en="Research documentation, reports, presentation materials, and project coordination." data-zh="研究文档、报告、演示材料与项目协作。">Research documentation, reports, presentation materials, and project coordination.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark reveal-section" id="education" data-bg="dark">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Education and academic output" data-zh="教育与科研成果">Education and academic output</div>
+    <h2 data-type-effect data-en="M.F.A., Jiangsu University · Granted invention patent · Bauhaus Silver Award" data-zh="江苏大学艺术硕士 · 授权发明专利 · 包豪斯银奖">M.F.A., Jiangsu University · Granted invention patent · Bauhaus Silver Award</h2>
+        <div class="single-stack">
+      <div>
+        <div class="section-kicker" data-en="Education" data-zh="教育经历">Education</div>
+                <div class="bio-stack">
+                  <div class="bio-line"><div class="bio-year">2020 — 2023</div><div><div class="bio-title" data-en="Jiangsu University · M.F.A. in Digital Art Design" data-zh="江苏大学 · 艺术硕士（数字化艺术设计）">Jiangsu University · M.F.A. in Digital Art Design</div><div class="bio-copy"><span data-en="Research direction: virtual reality and product design. I scored " data-zh="研究方向：虚拟现实与产品设计。">Research direction: virtual reality and product design. I scored </span><span class="hl" data-en="402 out of 500" data-zh="全国硕士研究生招生考试总分 402 分（满分 500 分）">402 out of 500</span><span data-en=" in the national postgraduate entrance examination, " data-zh="，"> in the national postgraduate entrance examination, </span><span class="hl" data-en="ranking first in both the written examination and the interview" data-zh="初试、复试均排名第一">ranking first in both the written examination and the interview</span><span data-en="." data-zh="。">.</span></div></div></div>
+                  <div class="bio-line"><div class="bio-year">2016 — 2020</div><div><div class="bio-title" data-en="Hunan University of Technology Science and Technology College · B.A. in Product Design" data-zh="湖南工业大学科技学院 · 产品设计学士">Hunan University of Technology Science and Technology College · B.A. in Product Design</div><div class="bio-copy" data-en="Coursework included product system design, design psychology, ergonomics, and product semantics." data-zh="主修产品系统设计、设计心理学、人机工程学、产品语意设计等。">Coursework included product system design, design psychology, ergonomics, and product semantics.</div></div></div>
+                </div>
+      </div>
+      <div class="rule"></div>
+      <div>
+        <div class="section-kicker" data-en="Academic output" data-zh="科研成果">Academic output</div>
+        <div class="output-group">
+            <div class="output-group-label" data-en="Journal & Conference Papers" data-zh="期刊与会议论文">Journal & Conference Papers</div>
+            <div class="output-list">
+          <div class="output-item"><div class="output-year">2025</div><div><div class="output-title">A Mixed Reality-Based Personalization System for Recreational Vehicle Interior Customization</div><div class="output-meta">Technical Gazette · DOI 10.17559/TV-20250904002943</div></div></div>
+          <div class="output-item"><div class="output-year">2022</div><div><div class="output-title">Research on the Application of Mixed Reality Technology in the Field of Art Design</div><div class="output-meta">SHS Web of Conferences · DOI 10.1051/shsconf/202214501022</div></div></div>
+            </div>
+          </div>
+          <div class="output-group">
+            <div class="output-group-label" data-en="Thesis" data-zh="学位论文">Thesis</div>
+            <div class="output-list">
+          <div class="output-item"><div class="output-year">2023</div><div><div class="output-title" data-en="Master's Thesis · Mixed Reality-Based Recreational Vehicle Interior Customization" data-zh="硕士论文 · 基于混合现实的房车内饰定制系统设计研究">Master's Thesis · Mixed Reality-Based Recreational Vehicle Interior Customization</div><div class="output-meta">Jiangsu University · DOI 10.27170/d.cnki.gjsuu.2023.002106</div></div></div>
+            </div>
+          </div>
+          <div class="output-group">
+            <div class="output-group-label" data-en="Intellectual Property" data-zh="知识产权">Intellectual Property</div>
+            <div class="output-list">
+          <div class="output-item"><div class="output-year">IP</div><div><div class="output-title" data-en="Granted invention patent" data-zh="授权发明专利">Granted invention patent</div><div class="output-meta"><span class="hl">CN202210502049.1</span> · Mixed-reality-based RV interior customization method and system</div></div></div>
+          <div class="output-item"><div class="output-year">IP</div><div><div class="output-title" data-en="Software copyright" data-zh="软件著作权">Software copyright</div><div class="output-meta"><span class="hl">2022SR0889245</span> · MR RV Interior Personalization System</div></div></div>
+            </div>
+          </div>
+        <div class="section-kicker" style="margin-top:40px" data-en="Selected awards" data-zh="代表奖项">Selected awards</div>
+        <div class="award-inline"><span class="award-tag hl" data-en="Bauhaus International Design Competition · Silver" data-zh="包豪斯国际设计大赛 · 银奖">Bauhaus International Design Competition · Silver</span><span class="award-tag" data-en="Guoqing Cup · Second Prize" data-zh="国青杯 · 二等奖">Guoqing Cup · Second Prize</span><span class="award-tag" data-en="Rural Museum Narrative Design · First Prize" data-zh="乡村博物馆当代叙事设计 · 一等奖">Rural Museum Narrative Design · First Prize</span><span class="award-tag" data-en="Cross-Strait Emerging Design Award (Huacan) · Third Prize" data-zh="两岸新锐设计竞赛华灿奖 · 三等奖">Cross-Strait Emerging Design Award (Huacan) · Third Prize</span><span class="award-tag" data-en="National College Digital Art Design Competition · Third Prize" data-zh="全国高校数字艺术设计大赛 · 三等奖">National College Digital Art Design Competition · Third Prize</span><span class="award-tag" data-en="Milan Design Week · Second Prize" data-zh="米兰设计周 · 二等奖">Milan Design Week · Second Prize</span><span class="award-tag" data-en="Jinshan Cultural & Creative Design Competition · Excellence Award" data-zh="金山文化创意设计大赛 · 优秀奖">Jinshan Cultural & Creative Design Competition · Excellence Award</span><span class="award-tag" data-en="Chinese Ethnic Visual Identity Design Competition · Third Prize" data-zh="中华民族视觉形象创意设计实践大赛 · 三等奖">Chinese Ethnic Visual Identity Design Competition · Third Prize</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section light reveal-section" id="contact" data-bg="light">
+  <div class="section-inner">
+    <div class="section-kicker" data-en="Contact" data-zh="联系">Contact</div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-big" data-type-effect data-en="Let’s connect." data-zh="欢迎交流。">Let’s connect.</div>
+        <p class="contact-copy" data-en="I am interested in conversations and collaborations around HCI, XR, interaction design, and digital cultural heritage." data-zh="欢迎围绕 HCI、XR、交互设计与数字文化遗产开展学术交流与合作。">I am interested in conversations and collaborations around HCI, XR, interaction design, and digital cultural heritage.</p>
+      </div>
+      <div class="contact-list">
+        <div class="contact-item"><span>Email</span><a href="mailto:m15157722390@163.com">m15157722390@163.com</a></div>
+        <div class="contact-item"><span>WeChat</span><span>ELIZENG1998</span></div>
+        <div class="contact-item"><span>Phone</span><a href="tel:+8615157722390">+86 151 5772 2390</a></div>
+        <div class="contact-item"><span>CV</span><a href="#" onclick="return false;" data-en="English CV" data-zh="中文 CV">English CV</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" data-bg="dark">
+  <span data-en="Eli Zeng" data-zh="曾韩擂">Eli Zeng</span>
+  <span data-en="XR · HCI · Digital Cultural Heritage" data-zh="XR · HCI · 数字文化遗产">XR · HCI · Digital Cultural Heritage</span>
+</footer>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-overlay" data-close-menu></div>
+  <div class="mobile-sheet">
+    <nav aria-label="Mobile navigation">
+      <a class="mobile-link active" data-i="1" href="#home" data-nav="home"><span data-en="Home" data-zh="首页">Home</span></a>
+      <a class="mobile-link" data-i="2" href="#research" data-nav="research"><span data-en="Research" data-zh="研究">Research</span></a>
+      <a class="mobile-link" data-i="3" href="#experience" data-nav="experience"><span data-en="Experience" data-zh="经历">Experience</span></a>
+      <a class="mobile-link" data-i="4" href="#projects" data-nav="projects"><span data-en="Projects" data-zh="项目">Projects</span></a>
+      <a class="mobile-link" data-i="5" href="#skills" data-nav="skills"><span data-en="Skills" data-zh="技能">Skills</span></a>
+      <a class="mobile-link" data-i="6" href="#education" data-nav="education"><span data-en="Education" data-zh="教育">Education</span></a>
+      <a class="mobile-link" data-i="7" href="#contact" data-nav="contact"><span data-en="Contact" data-zh="联系">Contact</span></a>
+    </nav>
+    <a class="mobile-sign" data-i="8" href="mailto:m15157722390@163.com"><span data-en="Email Eli Zeng" data-zh="联系曾韩擂">Email Eli Zeng</span></a>
+  </div>
+</div>
+
+<canvas id="dither-trail" aria-hidden="true"></canvas>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<div class="project-page" id="projectPage" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="projectPageTitle">
+  <button class="project-back" id="projectBack" type="button" aria-label="Back to home">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    <span data-en="Back to Home" data-zh="返回首页">Back to Home</span>
+  </button>
+  <div class="project-page-inner" id="projectPlaceholder">
+    <div class="project-page-content">
+      <div class="project-page-kicker" id="projectPageKicker"></div>
+      <div class="project-page-title" id="projectPageTitle"></div>
+
+      <!-- 项目介绍（占位） -->
+      <section class="project-intro-section" aria-label="Project introduction">
+        <h3 class="project-section-heading" data-en="Project Introduction" data-zh="项目介绍">Project Introduction</h3>
+        <p class="project-intro" data-en="Project introduction placeholder — content to be added soon." data-zh="项目介绍占位符 —— 内容待补充。">Project introduction placeholder — content to be added soon.</p>
+      </section>
+
+      <!-- 交互体验（默认小窗，可手动切换全屏/小窗） -->
+      <section class="project-experience-section" aria-label="Interactive experience">
+        <h3 class="project-section-heading" data-en="Interactive Experience" data-zh="交互体验">Interactive Experience</h3>
+        <div class="experience-frame-wrap" id="experienceWrap">
+          <div class="experience-frame">
+            <!-- 交互体验内容区（默认小窗显示）。
+                 project-01 在此嵌入线上原型；其他项目暂显示下方占位块，
+                 后续可替换为 <iframe src="..." ...></iframe> 或自定义交互组件；
+                 全屏 / 小窗切换逻辑已就绪，无需改动。 -->
+            <iframe class="experience-iframe" id="experienceIframe" title="Project interactive experience"
+              allow="camera; microphone; fullscreen" allowfullscreen loading="lazy" hidden></iframe>
+            <div class="experience-placeholder" id="experiencePlaceholder">
+              <i class="fa-solid fa-cube" aria-hidden="true"></i>
+              <p data-en="Interactive demo coming soon." data-zh="交互演示即将上线。">Interactive demo coming soon.</p>
+              <p class="experience-note" data-en="Small window mode by default. Use the buttons below to switch between windowed and fullscreen." data-zh="默认为小窗模式，可通过下方按钮切换全屏或小窗。">Small window mode by default. Use the buttons below to switch between windowed and fullscreen.</p>
+            </div>
+          </div>
+          <div class="experience-controls">
+            <button class="experience-btn" id="experienceEnterFs" type="button">
+              <i class="fa-solid fa-expand" aria-hidden="true"></i>
+              <span data-en="Enter fullscreen" data-zh="全屏">Enter fullscreen</span>
+            </button>
+            <button class="experience-btn" id="experienceExitFs" type="button" hidden>
+              <i class="fa-solid fa-compress" aria-hidden="true"></i>
+              <span data-en="Exit fullscreen" data-zh="退出全屏">Exit fullscreen</span>
+            </button>
+            <button class="experience-btn" id="experienceOpenExternal" type="button" hidden>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              <span data-en="Open in new tab" data-zh="在新标签页打开">Open in new tab</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+<!-- ================================================================
+     FluidGlass（React Bits）真实 WebGL 液态玻璃
+     ★ 关键改动：玻璃条材质改为"深色"以匹配 CV/Contact 按钮
+     ================================================================ -->
+<script type="text/babel" data-type="module" data-presets="react" src="assets/js/fluid-glass.jsx"></script>
+<script type="text/babel" data-type="module" data-presets="react" src="assets/js/folder-interaction.jsx"></script>
+<script src="assets/js/fallback.js"></script>
+</body>
+</html>
