@@ -1267,10 +1267,13 @@
       else if(el._techText) el._techText.setText(next);
       else if(el!==eliTitle) el.textContent=next;
     });
-    langButtons.forEach(btn=>{
+    document.querySelectorAll('[data-lang]').forEach(btn=>{
       const on=btn.dataset.lang===lang;
       btn.classList.toggle('active',on);
       btn.setAttribute('aria-pressed',on?'true':'false');
+    });
+    document.querySelectorAll('.lang-toggle,.mobile-lang').forEach(toggle=>{
+      toggle.dataset.active=lang;
     });
     document.title=title[lang];
     try{localStorage.setItem('eli-site-lang',lang);}catch(e){}
