@@ -683,6 +683,73 @@ body.fg3d-on .header .mobile-tools .burger.glass-surface--fallback::before,
 body.fg3d-on .header .mobile-tools .mobile-lang.glass-surface--svg::before,
 body.fg3d-on .header .mobile-tools .mobile-lang.glass-surface--fallback::before{display:none}
 
+/* Language switch: move one shared active pill between EN and 中. */
+.lang-toggle{
+  --lang-motion:cubic-bezier(.22,1,.36,1);
+  --lang-duration:.42s;
+  min-width:76px;
+  overflow:hidden;
+}
+.lang-toggle::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:4px;
+  left:4px;
+  width:calc(50% - 4px);
+  height:calc(100% - 8px);
+  border-radius:999px;
+  background:#000;
+  pointer-events:none;
+  transform:translateX(0);
+  transition:transform var(--lang-duration) var(--lang-motion);
+}
+.lang-toggle:has(button[data-lang="zh"].active)::after{transform:translateX(100%)}
+.lang-toggle button{
+  position:relative;
+  z-index:1;
+  flex:1 1 0;
+  min-width:30px;
+  background:transparent;
+  transition:color var(--lang-duration) ease,opacity var(--lang-duration) ease;
+}
+.lang-toggle button.active{background:transparent;color:#fff}
+.lang-toggle button:not(.active){color:#2e2e2e}
+
+@media(max-width:760px){
+  .mobile-lang{
+    --lang-motion:cubic-bezier(.22,1,.36,1);
+    --lang-duration:.42s;
+    position:relative;
+    min-width:76px;
+    overflow:hidden;
+  }
+  .mobile-lang::after{
+    content:"";
+    position:absolute;
+    z-index:0;
+    top:4px;
+    left:4px;
+    width:calc(50% - 4px);
+    height:calc(100% - 8px);
+    border-radius:999px;
+    background:#fff;
+    pointer-events:none;
+    transform:translateX(0);
+    transition:transform var(--lang-duration) var(--lang-motion);
+  }
+  .mobile-lang:has(button[data-lang="zh"].active)::after{transform:translateX(100%)}
+  .mobile-lang button{
+    position:relative;
+    z-index:1;
+    flex:1 1 0;
+    min-width:30px;
+    transition:color var(--lang-duration) ease,opacity var(--lang-duration) ease;
+  }
+  .mobile-lang button.active{background:transparent;color:#000}
+  .mobile-lang button:not(.active){color:#c7c7c7}
+}
+
 /* 项目页面 */
 .project-page{
   position:fixed;
