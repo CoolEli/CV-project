@@ -1439,7 +1439,8 @@
     },
     'project-02': {
       kicker:{en:'02 / DUNHUANG', zh:'02 / 敦煌'},
-      title:{en:'Dunhuang Interactive Heritage', zh:'敦煌互动文化遗产'}
+      title:{en:'Dunhuang Interactive Heritage', zh:'敦煌互动文化遗产'},
+      directUrl: 'https://cooleli.github.io/Portfolio-page/Dunhuang%20Interactive%20Heritage%20project/'
     },
     'project-03': {
       kicker:{en:'03 / MR', zh:'03 / MR'},
@@ -1603,6 +1604,12 @@
     const go = (e) => {
       if (e) e.preventDefault();
       if (e) e.stopPropagation();
+      const meta = PROJECT_META[hash];
+      if (meta.directUrl) {
+        const w = window.open(meta.directUrl, '_blank', 'noopener');
+        if (!w) window.location.href = meta.directUrl;
+        return;
+      }
       openProjectInNewTab(hash);
     };
     card.addEventListener('click', go);
