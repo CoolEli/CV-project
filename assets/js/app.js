@@ -1459,7 +1459,8 @@
     },
     'project-06': {
       kicker:{en:'06 / PRODUCT', zh:'06 / 产品'},
-      title:{en:'Product Design', zh:'产品设计'}
+      title:{en:'Product Design', zh:'产品设计'},
+      directUrl: 'https://cooleli.github.io/Portfolio-page/Product%20Design%20project/'
     }
   };
 
