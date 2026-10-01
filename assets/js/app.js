@@ -1609,7 +1609,7 @@
       if (e) e.stopPropagation();
       const meta = PROJECT_META[hash];
       if (meta.directUrl) {
-        const w = window.open(meta.directUrl, '_blank', 'noopener');
+        const w = window.open(meta.directUrl, '_blank');
         if (!w) window.location.href = meta.directUrl;
         return;
       }
