@@ -714,6 +714,9 @@ body.fg3d-on .header .mobile-tools .mobile-lang.glass-surface--fallback::before{
 .lang-toggle button{
   position:relative;
   z-index:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   width:var(--lang-button-width);
   height:var(--lang-button-width);
   padding:0;
@@ -755,6 +758,9 @@ body.fg3d-on .header .mobile-tools .mobile-lang.glass-surface--fallback::before{
   .mobile-lang button{
     position:relative;
     z-index:1;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
     width:var(--lang-button-width);
     height:var(--lang-button-width);
     padding:0;
