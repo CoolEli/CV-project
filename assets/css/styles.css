@@ -13,7 +13,8 @@ body.menu-open{overflow:hidden}
 a{color:inherit;text-decoration:none}button{font:inherit}
 ::selection{background:var(--red);color:#fff}
 
-#liquid-ether-fixed{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.6}
+#liquid-ether-fixed{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.6;transition:opacity .5s ease,visibility .5s}
+body:not(.ether-on) #liquid-ether-fixed{opacity:0;visibility:hidden}
 #liquid-ether-fixed canvas{display:block;width:100% !important;height:100% !important}
 
 .page,.section,.site-footer{position:relative;z-index:1}
