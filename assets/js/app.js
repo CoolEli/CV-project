@@ -1461,7 +1461,8 @@
     },
     'project-05': {
       kicker:{en:'05 / APP', zh:'05 / APP'},
-      title:{en:'APP Interaction Design', zh:'APP 交互设计'}
+      title:{en:'Jiuli Village Tourism Service Design', zh:'九里村文旅服务设计'},
+      directUrl: 'https://cooleli.github.io/Portfolio-page/APP%20Interaction%20Design%20project/'
     },
     'project-06': {
       kicker:{en:'06 / PRODUCT', zh:'06 / 产品'},
