@@ -1193,8 +1193,9 @@
   }
 
   const mountEl=document.getElementById('liquid-ether-fixed');
+  let liquidEther=null;
   if(mountEl&&!prefersReducedMotion){
-    createLiquidEther(mountEl,{
+    liquidEther=createLiquidEther(mountEl,{
       colors:['#0a0a0a','#3a3a3a','#8a8a8a','#ffffff'],
       backgroundColor:'#000000',lightMode:false,
       mouseForce:30,cursorSize:200,resolution:0.5,
@@ -1226,12 +1227,17 @@
   function updateBgState(){
     const midY=window.innerHeight/2;
     let current='dark';
+    let currentId='';
     for(const sec of bgSections){
       const r=sec.getBoundingClientRect();
-      if(r.top<=midY&&r.bottom>=midY){current=sec.dataset.bg;break;}
+      if(r.top<=midY&&r.bottom>=midY){current=sec.dataset.bg;currentId=sec.id;break;}
     }
     document.body.classList.toggle('dark-active',current==='dark');
     document.body.classList.toggle('light-active',current==='light');
+    /* 背景流体动效只在第一屏（home）保留，其余区域隐藏并暂停渲染 */
+    const etherOn=currentId==='home';
+    document.body.classList.toggle('ether-on',etherOn);
+    if(liquidEther){ if(etherOn) liquidEther.resume(); else liquidEther.pause(); }
   }
   function onBgScroll(){
     if(bgRaf) return;
