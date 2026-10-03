@@ -1437,8 +1437,7 @@
     'project-01': {
       kicker:{en:'01 / HERITAGE', zh:'01 / 遗产'},
       title:{en:'Bronze Heritage Gesture Interaction', zh:'青铜器手势交互'},
-      externalUrl: 'https://cooleli.github.io/Bronze-Ware-Interaction/',
-      embedUrl: 'https://cooleli.github.io/Bronze-Ware-Interaction/'
+      directUrl: 'https://cooleli.github.io/Portfolio-page/Bronze%20Heritage%20Gesture%20Interaction%20project/'
     },
     'project-02': {
       kicker:{en:'02 / DUNHUANG', zh:'02 / 敦煌'},
