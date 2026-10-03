@@ -1452,7 +1452,8 @@
     },
     'project-03': {
       kicker:{en:'03 / MR', zh:'03 / MR'},
-      title:{en:'MR RV Interior Customization', zh:'MR 房车内饰定制'}
+      title:{en:'MR RV Interior Customization', zh:'MR 房车内饰定制'},
+      directUrl: 'https://cooleli.github.io/Portfolio-page/MR%20RV%20Interior%20Customization%20project/'
     },
     'project-04': {
       kicker:{en:'04 / PATTERN', zh:'04 / 纹样'},
@@ -1465,7 +1466,7 @@
     'project-06': {
       kicker:{en:'06 / PRODUCT', zh:'06 / 产品'},
       title:{en:'Product Design', zh:'产品设计'},
-      directUrl: 'https://cooleli.github.io/Portfolio-page/MR%20RV%20Interior%20Customization%20project/'
+      directUrl: 'https://cooleli.github.io/Portfolio-page/Product%20Design%20project/'
     }
   };
 
