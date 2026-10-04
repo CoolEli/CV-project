@@ -161,7 +161,7 @@
 
   const cards = [...document.querySelectorAll('.outline-card')];
   cards.forEach(card => {
-    if(card.closest('#research')) return;
+    if(card.closest('#research') || card.closest('#projectCarousel')) return; /* 轮播主卡片：跳过液态玻璃扭曲层，避免大卡片上的色散伪影 */
     const layers = ['fg-inner-glow','fg-ca','fg-sheen','fg-grain'];
     layers.forEach(cls => {
       const div = document.createElement('div');
