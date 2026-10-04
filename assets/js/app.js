@@ -161,7 +161,7 @@
 
   const cards = [...document.querySelectorAll('.outline-card')];
   cards.forEach(card => {
-    if(card.closest('#research')) return;
+    if(card.closest('#research') || card.closest('#projectCarousel')) return; /* 轮播主卡片：跳过液态玻璃扭曲层，避免大卡片上的色散伪影 */
     const layers = ['fg-inner-glow','fg-ca','fg-sheen','fg-grain'];
     layers.forEach(cls => {
       const div = document.createElement('div');
@@ -1467,6 +1467,120 @@
     }
   };
 
+  /* ============ Connected carousel — projects section ============
+     深色适配版 connected-carousel：中间大卡 + 两侧照片 chips 共用一条玻璃 band，
+     视觉上连成一整条；6 秒自动轮播，hover 暂停；底部进度 tab 同步。 */
+  (function initProjectCarousel(){
+    const rootEl = document.getElementById('projectCarousel');
+    if (!rootEl) return;
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const AUTOPLAY = 6000;
+    const ITEMS = [
+      {key:'project-01', img:'assets/img/cc-bronze.jpg',   alt:'Bronze ding vessel with taotie pattern'},
+      {key:'project-02', img:'assets/img/cc-dunhuang.jpg', alt:'Particle Buddha with a glowing pagoda'},
+      {key:'project-03', img:'assets/img/cc-mr.jpg',       alt:'RV driving through a desert canyon'},
+      {key:'project-05', img:'assets/img/cc-app.jpg',      alt:'Jiuli village at dusk'},
+      {key:'project-06', img:'assets/img/cc-product.jpg',  alt:'Zen desk night lamp glowing by the water'},
+    ];
+    const N = ITEMS.length;
+    const main = rootEl.querySelector('.cc-main');
+    const mainImg = rootEl.querySelector('.cc-main-img');
+    const texts = [...rootEl.querySelectorAll('.cc-text')];
+    const chips = [...rootEl.querySelectorAll('.cc-chip')];
+    const tabsEl = rootEl.querySelector('.cc-tabs');
+    let index = 0, raf = 0, t0 = 0, held = 0, paused = false, first = true;
+
+    ITEMS.forEach(it => { const im = new Image(); im.src = it.img; });
+
+    const tabs = ITEMS.map((it, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cc-tab' + (i === 0 ? ' is-active' : '');
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      b.setAttribute('aria-label', 'Show project ' + (i + 1) + ' of ' + N);
+      b.innerHTML = '<span class="cc-dot"></span>';
+      b.addEventListener('click', () => goTo(i));
+      tabsEl.appendChild(b);
+      return b;
+    });
+
+    function setTabProgress(p){
+      tabs[index].style.setProperty('--p', p.toFixed(4));
+    }
+
+    function render(){
+      const it = ITEMS[index];
+      main.dataset.project = it.key;
+      main.setAttribute('aria-label', 'Open project in new tab: ' + it.key);
+      const applyImg = () => { mainImg.src = it.img; mainImg.alt = it.alt; };
+      texts.forEach((t, k) => t.classList.toggle('is-active', k === index));
+      if (reduce || first) { applyImg(); first = false; }
+      else {
+        main.classList.add('is-swapping');
+        setTimeout(applyImg, 200);
+        setTimeout(() => main.classList.remove('is-swapping'), 260);
+      }
+      chips.forEach(ch => {
+        const off = parseInt(ch.dataset.slot, 10);
+        const gi = (index + off + N * 2) % N;
+        const target = ITEMS[gi];
+        const img = ch.querySelector('img');
+        ch.dataset.goto = gi;
+        ch.setAttribute('aria-label', 'Show project ' + (gi + 1) + ' of ' + N);
+        if (img.dataset.k !== target.key) {
+          img.dataset.k = target.key;
+          img.style.opacity = '0';
+          const pre = new Image();
+          const done = () => { img.src = target.img; img.alt = target.alt; img.style.opacity = '1'; };
+          pre.onload = done; pre.onerror = done;
+          pre.src = target.img;
+        }
+      });
+      tabs.forEach((t, k) => {
+        t.classList.toggle('is-active', k === index);
+        t.setAttribute('aria-selected', k === index ? 'true' : 'false');
+      });
+      setTabProgress(0);
+    }
+
+    function tick(now){
+      if (paused || reduce) return;
+      if (!t0) t0 = now - held;
+      held = now - t0;
+      const p = Math.min(held / AUTOPLAY, 1);
+      setTabProgress(p);
+      if (p >= 1) { goTo(index + 1); return; }
+      raf = requestAnimationFrame(tick);
+    }
+    function restart(){
+      cancelAnimationFrame(raf);
+      t0 = 0; held = 0;
+      setTabProgress(0);
+      if (!reduce && !paused) raf = requestAnimationFrame(tick);
+    }
+    function goTo(i){
+      index = ((i % N) + N) % N;
+      render();
+      restart();
+    }
+
+    chips.forEach(ch => ch.addEventListener('click', () => goTo(parseInt(ch.dataset.goto || '0', 10))));
+    rootEl.addEventListener('pointerenter', () => { paused = true; cancelAnimationFrame(raf); });
+    rootEl.addEventListener('pointerleave', () => { paused = false; if (!reduce) raf = requestAnimationFrame(tick); });
+    rootEl.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { paused = true; cancelAnimationFrame(raf); }
+      else if (!reduce) { paused = false; raf = requestAnimationFrame(tick); }
+    });
+
+    render();
+    restart();
+  })();
+
   function currentLang(){
     return root.lang === 'zh-CN' ? 'zh' : 'en';
   }
@@ -1537,7 +1651,7 @@
   handleProjectHash();
 
   document.querySelectorAll('#projects .outline-card').forEach(card => {
-    const hash = card.dataset.project;
+    let hash = card.dataset.project;
     if (!hash || !PROJECT_META[hash]) return;
 
     card.setAttribute('role', 'link');
@@ -1611,6 +1725,7 @@
     const go = (e) => {
       if (e) e.preventDefault();
       if (e) e.stopPropagation();
+      hash = card.dataset.project; /* 轮播主卡片 data-project 随切换更新，读取实时值 */
       const meta = PROJECT_META[hash];
       if (meta.directUrl) {
         const w = window.open(meta.directUrl, '_blank');
