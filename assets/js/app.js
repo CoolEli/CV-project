@@ -1455,10 +1455,6 @@
       title:{en:'MR RV Interior Customization', zh:'MR 房车内饰定制'},
       directUrl: 'https://cooleli.github.io/Portfolio-page/MR%20RV%20Interior%20Customization%20project/'
     },
-    'project-04': {
-      kicker:{en:'04 / PATTERN', zh:'04 / 纹样'},
-      title:{en:'Traditional Pattern Interaction', zh:'传统纹样交互'}
-    },
     'project-05': {
       kicker:{en:'05 / APP', zh:'05 / APP'},
       title:{en:'Jiuli Village Tourism Service Design', zh:'九里村文旅服务设计'},
