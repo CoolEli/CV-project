@@ -1273,6 +1273,10 @@
       else if(el._techText) el._techText.setText(next);
       else if(el!==eliTitle) el.textContent=next;
     });
+    document.querySelectorAll('[data-href-en][data-href-zh]').forEach(el=>{
+      const key=lang==='zh'?'hrefZh':'hrefEn';
+      if(el.dataset[key]) el.setAttribute('href',el.dataset[key]);
+    });
     document.querySelectorAll('[data-lang]').forEach(btn=>{
       const on=btn.dataset.lang===lang;
       btn.classList.toggle('active',on);
