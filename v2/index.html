@@ -422,7 +422,7 @@ footer{flex-wrap:wrap;gap:8px 24px}
   </nav>
   <div class="tools">
     <div class="lang"><button data-lang="en">EN</button><button data-lang="zh">中</button></div>
-    <a class="cv-btn cv-link" href="https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf" target="_blank" rel="noopener"><i>›</i><span data-en="Download CV" data-zh="下载简历">Download CV</span></a>
+    <a class="cv-btn cv-link" href="https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf?v=20261011" target="_blank" rel="noopener"><i>›</i><span data-en="Download CV" data-zh="下载简历">Download CV</span></a>
   </div>
 </header>
 
@@ -600,7 +600,7 @@ footer{flex-wrap:wrap;gap:8px 24px}
       <a class="cbox rv" href="mailto:hanleizeng@gmail.com"><div class="kicker">EMAIL</div><div class="v">hanleizeng@gmail.com</div></a>
       <div class="cbox rv d1"><div class="kicker">WECHAT</div><div class="v">ELIZENG1998</div></div>
       <a class="cbox rv d2" href="tel:+8615157722390"><div class="kicker">PHONE</div><div class="v">+86 151 5772 2390</div></a>
-      <a class="cbox rv d3 cv-link" href="https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf" target="_blank" rel="noopener"><div class="kicker">CV</div><div class="v" data-en="Download English CV ↗" data-zh="下载中文简历 ↗">Download English CV ↗</div></a>
+      <a class="cbox rv d3 cv-link" href="https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf?v=20261011" target="_blank" rel="noopener"><div class="kicker">CV</div><div class="v" data-en="Download English CV ↗" data-zh="下载中文简历 ↗">Download English CV ↗</div></a>
     </div>
   </section>
 </main>
@@ -613,7 +613,7 @@ footer{flex-wrap:wrap;gap:8px 24px}
   const t=setInterval(()=>{v=Math.min(100,v+6+Math.ceil(Math.random()*12));p.textContent=v;b.style.width=v+"%";
     if(v>=100){clearInterval(t);setTimeout(()=>sp.classList.add("done"),250)}},45);})();
 /* ---------- language ---------- */
-const CV={en:"https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf",zh:"https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-CN.pdf"};
+const CV={en:"https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-EN.pdf?v=20261011",zh:"https://cooleli.github.io/CV-project/assets/cv/Hanlei-Zeng-CV-CN.pdf?v=20261011"};
 function setLang(l){
   document.documentElement.lang=l==="zh"?"zh-CN":"en";
   document.querySelectorAll("[data-en]").forEach(e=>{e.textContent=e.dataset[l]});
